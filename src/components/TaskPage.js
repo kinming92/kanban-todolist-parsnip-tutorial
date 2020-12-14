@@ -43,7 +43,7 @@ class TaskPage extends Component{
         const {tasks} = this.props;
         return TASK_STATUSES.map( status => {
             const statusTasks = tasks.filter( task => task.status === status)
-            return <TaskList key={status} status={status} tasks={statusTasks} />
+            return <TaskList key={status} status={status} tasks={statusTasks} onStatusChange={this.props.onStatusChange} />
         })
     }
     render() {
