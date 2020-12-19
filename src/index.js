@@ -1,13 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
+import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 import tasks from './reducers'
 import './index.css'
 
 
-const store = createStore(tasks)
+const store = createStore(tasks, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>
